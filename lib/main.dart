@@ -1,4 +1,5 @@
 import 'package:FIREBASELOGIN/HomePage.dart';
+import 'package:FIREBASELOGIN/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'SigninPage.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         DeviceOrientation.portraitUp,
       ]);
     return MaterialApp(
-      title: 'Firebase login',
+      title: 'Notes',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -27,6 +28,9 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/SigninPage': (BuildContext context) => SigninPage(),
         '/SignupPage': (BuildContext context) => SignupPage(),
+        '/Profile': (BuildContext context) => Profile(),
+        '/NoteList': (BuildContext context) => NoteList(),
+
       },
     );
   }

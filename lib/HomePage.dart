@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sqflite/sqflite.dart';
 import 'dart:async';
-import 'package:FIREBASELOGIN/util.dart';
 import 'Note.dart';
 
 
@@ -45,7 +44,7 @@ class _NoteListState extends State<NoteList> {
         this.displayName = user.displayName;
       });
     }
-    print(this.user);
+    // print(this.user);
   }
   
   signOut() async {
@@ -58,6 +57,8 @@ class _NoteListState extends State<NoteList> {
     this.checkAuthentication();
     this.getUser();
   }
+
+
   @override
   Widget build(BuildContext context) {
     if (noteList == null){
@@ -69,27 +70,34 @@ class _NoteListState extends State<NoteList> {
         title: Text('Note'),
         backgroundColor: Colors.black87,
       ),
+      
 
       drawer: Drawer(
         child: ListView(
           children: [
             UserAccountsDrawerHeader(
-              accountName: Text("${user.displayName}"),
-              accountEmail: Text("${user.email}"),
+              accountName: Text("Jaimis"),
+              accountEmail: Text("jemish@gmail.com"),
               currentAccountPicture: CircleAvatar(
                 backgroundColor:
                     Theme.of(context).platform == TargetPlatform.iOS
                         ? Colors.black
                         : Colors.black,
-                backgroundImage: AssetImage('assets/1234.png'),
+                child: Icon(Icons.person, color: Colors.green,),
                 
               ),
             ),
             ListTile(
+              onTap: (){
+                Navigator.pushNamed(context, "/NoteList");
+              },
               title: Text("Home"),
               leading: Icon(Icons.home),
             ),
             ListTile(
+              onTap: (){
+                Navigator.pushNamed(context, "/Profile");
+              },
               title: Text("Profile"),
               leading: Icon(Icons.account_circle),
             ),
@@ -129,7 +137,7 @@ class _NoteListState extends State<NoteList> {
           elevation: 4.0,
           child: ListTile(
             leading: CircleAvatar(
-              backgroundImage: AssetImage('assets/1234.png'),
+              backgroundImage: AssetImage('assets/12.png'),
             ),
             title: Text(this.noteList[position].title,
             style: TextStyle(
