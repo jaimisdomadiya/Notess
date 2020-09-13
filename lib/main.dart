@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         DeviceOrientation.portraitUp,
       ]);
     return MaterialApp(
-      title: 'Notes',
+      title: 'Notessssssssssssssssssssssssss',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
